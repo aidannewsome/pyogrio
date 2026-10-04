@@ -1,0 +1,18 @@
+--- a/ogr/ogrsf_frmts/openfilegdb/filegdbtable.cpp	2026-10-04 13:23:34
++++ b/ogr/ogrsf_frmts/openfilegdb/filegdbtable.cpp	2026-10-04 13:23:34
+@@ -2762,6 +2762,7 @@
+         return;
+     if (!oSRS.IsProjected())
+         return;
++    oSRS.SetAxisMappingStrategy(OAMS_TRADITIONAL_GIS_ORDER);
+     const char *pszProjection = oSRS.GetAttrValue("PROJECTION");
+     if (pszProjection == nullptr)
+         return;
+@@ -2788,6 +2789,7 @@
+ 
+     auto poSRSLongLat =
+         std::unique_ptr<OGRSpatialReference>(oSRS.CloneGeogCS());
++    poSRSLongLat->SetAxisMappingStrategy(OAMS_TRADITIONAL_GIS_ORDER);
+     auto poCT = std::unique_ptr<OGRCoordinateTransformation>(
+         OGRCreateCoordinateTransformation(poSRSLongLat.get(), &oSRS));
+     if (!poCT)
