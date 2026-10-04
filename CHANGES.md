@@ -2,6 +2,12 @@
 
 ## 0.14.0 (yyyy-mm-dd)
 
+### Improvements
+
+-   Read PolyhedralSurface and TIN geometries as MultiPolygon and Triangle as Polygon,
+    also within a GeometryCollection, as GEOS does not support them, such as the
+    parts of FileGDB MultiPatch features (#166). This applies when not using Arrow.
+
 ### Bug fixes
 
 -   Fix reading layers declared as `3D Unknown`, `Measured Unknown` or `3D Measured Unknown`,
