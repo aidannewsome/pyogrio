@@ -15,6 +15,13 @@
     they are read as `Unknown Z` or `Unknown`, measured values dropped as for other
     measured types (#702).
 
+### Packaging
+
+-   The macOS wheels no longer export the symbols of the libraries linked into
+    GDAL, which could clash with other copies loaded in the same process: with
+    pyogrio imported before rasterio, writing a LERC-compressed GeoTIFF with
+    rasterio aborted.
+
 ## 0.13.0 (2026-06-26)
 
 ### Improvements
