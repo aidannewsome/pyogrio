@@ -4,10 +4,10 @@
 
 ### Packaging
 
--   The macOS wheels no longer export the symbols of the libraries linked into
-    GDAL, which could clash with other copies loaded in the same process: with
-    pyogrio imported before rasterio, writing a LERC-compressed GeoTIFF with
-    rasterio aborted (#705).
+-   The macOS and Linux wheels no longer export the symbols of the libraries
+    linked into GDAL, which could clash with other copies loaded in the same
+    process: on macOS, with pyogrio imported before rasterio, writing a
+    LERC-compressed GeoTIFF with rasterio aborted (#705).
 
 ## 0.13.0 (2026-06-26)
 
